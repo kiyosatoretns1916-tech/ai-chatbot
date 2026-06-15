@@ -1,0 +1,16 @@
+# React
+frontend/node_modules/
+frontend/build/
+
+# Python
+backend/__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# VSCode
+.vscode/
+
+#memo
+設計・テスト/
