@@ -4,6 +4,8 @@ import ChatInput from "./ChatInput";
 import FileUpload from "./FileUpload";
 
 function App() {
+  const API_BASE_URL =
+  process.env.REACT_APP_API_BASE_URL || "http://127.0.0.1:8000";
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState(() => {
     const savedMessages = localStorage.getItem("messages");
@@ -41,8 +43,8 @@ function App() {
     setInput("");
     const endpoint =
       chatMode === "rag"
-        ? "http://127.0.0.1:8000/rag-chat"
-        : "http://127.0.0.1:8000/chat";
+        ? `${API_BASE_URL}/rag-chat`
+        : `${API_BASE_URL}/chat`;
 
     const loadingMessage = {
       sender: "ai",

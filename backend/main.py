@@ -14,6 +14,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def health_check():
+    return {"status": "ok"}
+
 client = OpenAI()
 
 rag_store = []

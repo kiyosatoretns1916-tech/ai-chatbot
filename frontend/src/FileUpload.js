@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+const API_BASE_URL =
+  process.env.REACT_APP_API_BASE_URL || "http://127.0.0.1:8000";
+
 function FileUpload({ uploadStatus, setUploadStatus }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
@@ -27,7 +30,7 @@ function FileUpload({ uploadStatus, setUploadStatus }) {
       setIsUploading(true);
       setUploadStatus("アップロード中...");
 
-      const res = await fetch("http://127.0.0.1:8000/upload", {
+      const res = await fetch(`${API_BASE_URL}/upload`, {
         method: "POST",
         body: formData,
       });
